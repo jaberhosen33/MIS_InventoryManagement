@@ -7,6 +7,7 @@ namespace MIS_InventoryManagement.Models
     public class Accessories
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AccessoriesID { get; set; }
 
         public string Device_type { get; set; }
