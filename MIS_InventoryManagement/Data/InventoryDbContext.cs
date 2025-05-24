@@ -14,7 +14,8 @@ namespace MIS_InventoryManagement.Data
         // DbSets go here
         public DbSet<StafInformation> StafInformations { get; set; }
         public DbSet<PcInformation> PcInformations { get; set; }
-        public DbSet<Accessories> Accessories { get; set; }
+        public DbSet<Accessories> Accessories { get; set; }   
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -7,19 +7,20 @@ namespace MIS_InventoryManagement.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int StafId { get; set; }
+        public string StafId { get; set; }
 
         [Required]
         public string Name { get; set; }
-
+        [Required]
         public string Dpt { get; set; }
 
         public string Designation { get; set; }
-
+        [Required]
         public string Phone { get; set; }
 
         public string Mail { get; set; }
 
+        [Required]
         public DateTime Date { get; set; }
 
         // Navigation properties

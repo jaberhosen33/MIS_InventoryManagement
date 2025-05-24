@@ -13,7 +13,7 @@ namespace MIS_InventoryManagement.Migrations
                 name: "StafInformations",
                 columns: table => new
                 {
-                    StafId = table.Column<int>(type: "int", nullable: false),
+                    StafId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Dpt = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Designation = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -27,10 +27,25 @@ namespace MIS_InventoryManagement.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PcInformations",
                 columns: table => new
                 {
-                    SlNo = table.Column<int>(type: "int", nullable: false),
+                    SlNo = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     BrandName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ModelNo = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Ram = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
@@ -40,7 +55,7 @@ namespace MIS_InventoryManagement.Migrations
                     Generation = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     VandorName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    StafId = table.Column<int>(type: "int", nullable: false)
+                    StafId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,8 +81,8 @@ namespace MIS_InventoryManagement.Migrations
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     AddBY = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StaffId = table.Column<int>(type: "int", nullable: false),
-                    PC_SLNO = table.Column<int>(type: "int", nullable: false)
+                    StaffId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PC_SLNO = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -106,6 +121,9 @@ namespace MIS_InventoryManagement.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Accessories");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "PcInformations");

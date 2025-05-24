@@ -8,7 +8,7 @@ namespace MIS_InventoryManagement.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)] 
-        public int SlNo { get; set; }
+        public string SlNo { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -32,6 +32,7 @@ namespace MIS_InventoryManagement.Models
         [StringLength(20)]
         public string Generation { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string VandorName { get; set; }
 
@@ -39,7 +40,7 @@ namespace MIS_InventoryManagement.Models
         public decimal Price { get; set; }
 
         // Foreign key
-        public int StafId { get; set; }
+        public string StafId { get; set; }
 
         [ForeignKey("StafId")]
         public StafInformation Staf { get; set; }

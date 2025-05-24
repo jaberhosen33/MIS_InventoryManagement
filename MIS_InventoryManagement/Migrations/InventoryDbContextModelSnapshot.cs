@@ -49,14 +49,16 @@ namespace MIS_InventoryManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PC_SLNO")
-                        .HasColumnType("int");
+                    b.Property<string>("PC_SLNO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("StaffId")
-                        .HasColumnType("int");
+                    b.Property<string>("StaffId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("VandorName")
                         .IsRequired()
@@ -73,8 +75,8 @@ namespace MIS_InventoryManagement.Migrations
 
             modelBuilder.Entity("MIS_InventoryManagement.Models.PcInformation", b =>
                 {
-                    b.Property<int>("SlNo")
-                        .HasColumnType("int");
+                    b.Property<string>("SlNo")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BrandName")
                         .IsRequired()
@@ -114,8 +116,9 @@ namespace MIS_InventoryManagement.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("StafId")
-                        .HasColumnType("int");
+                    b.Property<string>("StafId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("VandorName")
                         .IsRequired()
@@ -131,8 +134,8 @@ namespace MIS_InventoryManagement.Migrations
 
             modelBuilder.Entity("MIS_InventoryManagement.Models.StafInformation", b =>
                 {
-                    b.Property<int>("StafId")
-                        .HasColumnType("int");
+                    b.Property<string>("StafId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -160,6 +163,28 @@ namespace MIS_InventoryManagement.Migrations
                     b.HasKey("StafId");
 
                     b.ToTable("StafInformations");
+                });
+
+            modelBuilder.Entity("MIS_InventoryManagement.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MIS_InventoryManagement.Models.Accessories", b =>

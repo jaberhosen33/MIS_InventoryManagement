@@ -9,11 +9,11 @@ namespace MIS_InventoryManagement.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AccessoriesID { get; set; }
-
+        [Required]
         public string Device_type { get; set; }
-
+        [Required]
         public string Brand { get; set; }
-
+        [Required]
         public string VandorName { get; set; }
 
         public string Capasity { get; set; }
@@ -25,12 +25,12 @@ namespace MIS_InventoryManagement.Models
         public DateTime Date { get; set; }
 
         // Foreign keys
-        public int StaffId { get; set; }
+        public string StaffId { get; set; }
 
         [ForeignKey("StaffId")]
         public StafInformation Staf { get; set; }
 
-        public int PC_SLNO { get; set; }
+        public string PC_SLNO { get; set; }
 
         [ForeignKey("PC_SLNO")]
         public PcInformation Pc { get; set; }
